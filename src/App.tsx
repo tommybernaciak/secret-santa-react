@@ -1,26 +1,20 @@
-import React from 'react';
-import logo from './logo.svg';
+import { FC } from 'react';
 import './App.css';
+import Content from './components/Content';
+import Footer from './components/Footer';
+import Header from './components/Header';
+import { PageContextProvider } from './context/PageContext';
 
-function App() {
+const App: FC = () => {
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.tsx</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+    <PageContextProvider>
+      <div className="antialiased text-gray-800 bg-gradient-to-b from-red-100 to-red-600 w-full flex flex-col items-center justify-between min-h-screen">
+        <Header />
+        <Content />
+        <Footer />
+      </div>
+    </PageContextProvider>
   );
-}
+};
 
 export default App;
